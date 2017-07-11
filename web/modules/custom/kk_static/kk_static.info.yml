@@ -1,0 +1,5 @@
+name: kk_static
+type: module
+description: KK Static Pages
+core: 8.x
+package: Custom

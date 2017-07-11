@@ -1,0 +1,17 @@
+
+kk_custom.connect_with_us_form:
+  path: '/kk_custom/form/connect_with_us'
+  defaults:
+    _form: '\Drupal\kk_custom\Form\ConnectWithUsForm'
+    _title: 'ConnectWithUsForm'
+  requirements:
+    _access: 'TRUE'
+  
+
+kk_custom.contact_form:
+  path: '/form/contact'
+  defaults:
+    _form: '\Drupal\kk_custom\Form\ContactForm'
+    _title: 'ContactForm'
+  requirements:
+    _access: 'TRUE'

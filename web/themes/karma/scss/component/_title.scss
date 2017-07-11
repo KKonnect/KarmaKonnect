@@ -1,0 +1,35 @@
+/******** code for titles ********/
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  &.img {
+    font-size: 36px;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+}
+.title--colored {
+  .title__black {
+    color: $color-text;
+  }
+  .title__red {
+    color: $color-red;
+  }
+  img {
+    margin-right: 10px;
+  }
+}
+
+.heading {
+  margin-bottom: 58px;
+  margin-top: 38px;
+  .title {
+    @include flexbox;
+    @include align-items(center);
+    @media(max-width: 767px) {
+      img {
+        display: none;
+      }
+    }
+  }
+}

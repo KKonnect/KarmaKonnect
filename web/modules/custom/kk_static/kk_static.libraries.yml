@@ -1,0 +1,5 @@
+static-pages:
+  version: 1.x
+  css:
+    layout:
+      css/static-pages.css: {}

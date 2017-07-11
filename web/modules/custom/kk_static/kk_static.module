@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains kk_static.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function kk_static_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the kk_static module.
+    case 'help.page.kk_static':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('KK Static Pages') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function kk_static_theme() {
+  return [
+    'ngo_consulting' => [
+      'render element' => 'children',
+    ],
+  ];
+}

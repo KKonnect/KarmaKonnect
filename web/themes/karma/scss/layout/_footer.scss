@@ -1,0 +1,127 @@
+footer.footer {
+  background: url(../images/footer-pattern.png) repeat;
+  border: 0 none;
+  color: $color-grey;
+  padding-bottom: 12px;
+  margin-top: 0;
+  .block-title, nav h2 {
+    color: #fff;
+    font-size: 22px;
+    margin-bottom: 33px;
+  }
+  .col-sm-3 {
+    padding: 0;
+  }
+  .address {
+    p {
+      font-style: 13px;
+      a {
+        color: #fff;
+      }
+    }
+    .address-top {
+      padding-bottom: 28px;
+    }
+  }
+  nav {
+    li {
+      a {
+        padding: 6px 0;
+        padding-left: 20px;
+        color: $color-grey;
+        position: relative;
+        &:hover, &:focus {
+          text-decoration: none;
+          background: none;
+          color: white;
+        }
+        &:before {
+          content: '';
+          background: url(../images/list-arrow.png) no-repeat;
+          height: 12px;
+          width: 7px;
+          position: absolute;
+          left: 0;
+          top: 10px;
+          background-position: 0px -30px;
+        }
+        &:hover {
+          &:before {
+            background-position: 0px 0px;
+          }
+        }
+      }
+    }
+  }
+  .newsletter {
+    font-style: 11px;
+    text-align: justify;
+    .btn {
+      border: 0;
+      color: #fff;
+      padding: 7px 15px;
+      background: $color-red;
+    }
+    input {
+      border: 0 none;
+      border-radius: 0;
+      background: #1d1e1f;
+      color: #fff;
+    }
+  }
+  &.container {
+    max-width: 100%;
+  }
+}
+
+.footer-bottom {
+  background: #191b1c;
+  padding-top: 30px;
+  padding-bottom: 26px;
+  color: $color-grey;
+  section {
+    &:first-child {
+      float: left;
+    }
+    &:last-child {
+      float: right;
+      span {
+        float: left;
+      }
+    }
+  }
+  &.container {
+    max-width: 100%;
+  }
+}
+
+.social-links {
+  ul {
+    margin:0;
+    padding: 0;
+    float: right;
+    margin-left: 15px;
+    li {
+        display: inline-block;
+      a {
+        background: url(../images/social-icons.png) no-repeat;
+        height: 18px;
+        width: 18px;
+        margin: 0 10px;
+        display: inline-block;
+        &.tw {
+          background-position: 0 0;
+        }
+        &.fb {
+          background-position: -38px 0;
+        }
+        &.gplus {
+          background-position: -76px 0;
+        }
+        &.insta {
+          background-position: -110px 0;
+        }
+      }
+    }
+  }
+}

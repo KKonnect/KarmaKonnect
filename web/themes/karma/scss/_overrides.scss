@@ -1,0 +1,121 @@
+// @todo these should be their own CSS files and only included when
+// specific Drupal libraries are used.
+@import "component/alert";
+@import "component/ajax";
+@import "component/field";
+@import "component/file";
+@import "component/filter";
+@import "component/form";
+@import "component/icon";
+@import "component/navbar";
+@import "component/node";
+@import "component/panel";
+@import "component/progress-bar";
+@import "component/table-drag";
+@import "component/tabs";
+@import "component/toolbar";
+@import "helpers/mixins";
+@import "layout/footer";
+
+// jQuery UI style overrides.
+@import "jquery-ui/autocomplete";
+
+@import "../css/font-awesome.css";
+ol, ul {
+  padding-left: 1.5em;
+  .popover &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Page header.
+.page-header {
+  margin-top: 0;
+}
+
+// Footer.
+.footer {
+  margin-top: 45px;
+  padding-top: 35px;
+  padding-bottom: 36px;
+  border-top: 1px solid #E5E5E5;
+}
+
+// Paragraphs.
+p:last-child,
+.form-group:last-child,
+.panel:last-child {
+  margin-bottom: 0;
+}
+
+// Help region.
+.region-help {
+  > .glyphicon {
+    font-size: $font-size-large;
+    float: left;
+    margin: -0.05em 0.5em 0 0;
+  }
+  .block {
+    overflow: hidden;
+  }
+}
+
+
+.help-block, .control-group .help-inline {
+  color: $gray-light;
+  font-size: 12px;
+  margin: 5px 0 10px;
+  padding: 0;
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+@media(min-width: 768px) {
+  .container {
+    max-width: 100%;
+    width: 100%;
+    /* &.navbar {
+      max-width: 1280px;
+      width: 100%;
+    } */
+  }
+}
+
+
+@media(min-width: 992px) {
+  .container {
+    max-width: 100%;
+    width: 100%;
+    /* &.navbar {
+      max-width: 1280px;
+      width: 100%;
+    } */
+  }
+}
+
+@media(min-width: 1200px) {
+  .container {
+    max-width: 1280px;
+    width: 100%;
+    /* &.navbar {
+      max-width: 1280px;
+      width: 100%;
+    } */
+  }
+}
+
+
+body {
+  font-family: $font-family;
+  font-weight: 400;
+  margin-top: 0;
+}
+
+.custom-container {
+  max-width: 980px;
+  margin: 0 auto;
+  @media(max-width: 992px) {
+    padding: 0 15px;
+  }
+}

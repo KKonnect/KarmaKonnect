@@ -1,0 +1,291 @@
+/**
+ * Navbar styling.
+ */
+$mobile:          "screen and (max-width: #{$screen-xs-max})";
+$tablet:          "screen and (min-width: #{$screen-sm-min})";
+$normal:          "screen and (min-width: #{$screen-md-min})";
+$wide:            "screen and (min-width: #{$screen-lg-min})";
+$grid-breakpoint: "screen and (min-width: #{$grid-float-breakpoint})";
+
+body {
+  // Fix horizontal scrolling on iOS devices.
+  // http://drupal.org/node/1870076
+  position: relative;
+
+  &.navbar-is-static-top {
+    margin-top: 0;
+  }
+  &.navbar-is-fixed-top {
+    margin-top: ($navbar-height + ($grid-gutter-width / 2));
+  }
+  &.navbar-is-fixed-bottom {
+    padding-bottom: ($navbar-height + ($grid-gutter-width / 2));
+  }
+
+  @media #{$tablet} {
+    margin-top: ($grid-gutter-width / 2);
+  }
+  @media #{$mobile} {
+    &.toolbar-vertical {
+      &.navbar-is-fixed-top,
+      &.navbar-is-fixed-bottom {
+        .toolbar-bar {
+          position: fixed;
+        }
+        header {
+          z-index: 500;
+        }
+      }
+      // Default toolbar fixed height value.
+      // @see core/modules/toolbar/css/toolbar.icons.theme.css@261
+      &.navbar-is-fixed-top header {
+        top: 39px;
+      }
+    }
+  }
+}
+.navbar.container {
+  @media #{$tablet} {
+    max-width: (($container-sm - $grid-gutter-width));
+  }
+  @media #{$normal} {
+    max-width: (($container-md - $grid-gutter-width));
+  }
+  @media #{$wide} {
+    max-width: 1280px;
+  }
+}
+
+// Branding.
+.navbar .logo {
+  margin-right: -($grid-gutter-width / 2);
+  padding-left: ($grid-gutter-width / 2);
+  padding-right: ($grid-gutter-width / 2);
+  @media #{$grid-breakpoint} {
+    margin-right: 0;
+    padding-left: 0;
+  }
+}
+
+.navbar-default .navbar-collapse .navbar-nav > .active > a,
+.navbar-default .navbar-collapse .navbar-nav > .open .dropdown-menu > .active > a {
+    background: none;
+    color: $color-red;
+}
+.navbar-default .navbar-collapse .navbar-nav a,
+.navbar-default .navbar-collapse .navbar-nav > .open .dropdown-menu a {
+  color: #fff;
+}
+.navbar-default {
+  height: 84px;
+  @media (min-width: 993px){
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 99;
+    top: 0;
+  }
+  @media (min-width: 768px) {
+    .navbar-collapse {
+      display: none !important;
+    }
+  }
+  .navbar-toggle, .navbar-toggle:hover, .navbar-toggle:focus{
+    background: none;
+    border-color: transparent;
+  }
+  .navbar-toggle {
+    position: absolute;
+    right: 0px;
+    top: 15px;
+    .icon-bar {
+      width: 30px;
+      height: 3px;
+      margin-bottom: 6px;
+      background: #fff;
+    }
+  }
+  @media(max-width: 767px) {
+    height: auto;
+    .region-navigation {
+      nav {
+        display: none !important;
+      }
+    }
+  }
+  &:after {
+    display: inline-block;
+    @media(max-width: 767px) {
+      display: table;
+    }
+    width: 100%;
+  }
+  background: black;
+  border: 0;
+  border-radius: 0;
+  .navbar-header {
+    width: 100%;
+    nav {
+      float: right;
+      display: inline-block;
+      &:before {
+        content: '';
+        display: inline-block;
+        width: 100%;
+      }
+      a {
+        color: white;
+        font-family: $font-family;
+        font-weight: 700;
+        text-transform: uppercase;
+        &:hover {
+          color: $color-red;
+        }
+        &:focus {
+          background: none;
+          color: #fff;
+        }
+        &.is-active {
+          color: $color-red;
+        }
+      }
+      li.active {
+        > a {
+        color: $color-red;
+        background: none;
+        &:hover {
+          color: $color-red;
+          background: none;
+        }
+        &:after {
+          content: "";
+          height: 0px;
+          border-left: 14px solid transparent;
+          border-right: 14px solid transparent;
+          border-top: 0px solid transparent;
+          border-bottom: 12px solid #fff;
+          position: absolute;
+          bottom: -15px;
+          text-align: center;
+          margin: auto;
+          left: 0;
+          right: 0;
+          width: 0;
+        }
+      }
+        }
+        li.open {
+          a {
+            background: none;
+            color: $color-red;
+            &:hover, &:focus {
+              background: none;
+            }
+          }
+        }
+        li.dropdown:hover > ul.dropdown-menu {
+          opacity: 1;
+          transition: all 1000ms ease;
+          visibility: visible;
+        }
+        .dropdown-menu {
+          background: black;
+          opacity: 0;
+          transition: all 1000ms ease;
+          display: block;
+          visibility: hidden;
+          li {
+            padding: 10px 0;
+            a {
+              &:hover {
+                background: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+.user-logged-out {
+  .sign-in {
+    a {
+      background: $color-red;
+      padding: 8px 20px;
+      font-weight: 400;
+      font-style: 12px;
+      margin-right: 15px;
+      margin-top: 6px;
+      border-radius: 20px;
+    }
+  }
+}
+
+.fixed--nav {
+  background: #fafafa;
+  margin-bottom: 65px;
+  padding: 16px 0px;
+  top: 0;
+  &.affix {
+    -webkit-box-shadow: 0px 4px 5px 0px rgba(84,84,84,.13);
+    box-shadow: 0px 4px 4px 0px rgba(84,84,84,.13);
+  }
+  @media(min-width: 993px) {
+    top:84px;
+  }
+  width: 100%;
+  z-index: 10;
+  text-align: center;
+  @media (max-width: 992px){
+    white-space: nowrap;
+    overflow-x: auto;
+  }
+/*   .navbar-nav { */
+/*     > li { */
+      a {
+        font-weight: 700;
+        color: $color-text;
+        padding: 15px 10px;
+        &:hover, &:focus {
+          background: none;
+          text-decoration: none;
+        }
+        &:hover {
+          color: $color-red;
+          border-bottom: 2px solid $color-red;
+        }
+      }
+/*     } */
+/*   } */
+  .field--label {
+    display: none;
+  }
+  .field__items {
+    .field--item {
+      display: inline-block;
+      &.active {
+        a {
+          border-bottom: 2px solid #e83636;
+          color: #e83636;
+        }
+      }
+      &:first-child {
+        a {
+          padding-left: 0;
+          @media(max-width: 992px) {
+            padding-left: 10px;
+          }
+        }
+      }
+      &:last-child {
+        a {
+          padding-right: 0;
+          @media(max-width: 992px) {
+            padding-right: 10px;
+          }
+        }
+      }
+    }
+  }
+}

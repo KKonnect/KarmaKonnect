@@ -1,0 +1,15 @@
+<?php
+/**
+ * @file
+ * Bootstrap sub-theme.
+ *
+ * Place your custom PHP code in this file.
+ */
+
+/**
+ * @inheritdoc
+ */
+function karma_preprocess_node(&$variables) {
+  // Add ajax library.
+  $variables['#attached']['library'][] = 'core/drupal.ajax';
+}

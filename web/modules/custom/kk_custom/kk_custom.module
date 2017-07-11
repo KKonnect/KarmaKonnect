@@ -1,0 +1,69 @@
+<?php
+
+/**
+ * @file
+ * Contains kk_custom.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function kk_custom_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the kk_custom module.
+    case 'help.page.kk_custom':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('KK Custom') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function kk_custom_theme() {
+  return [
+    'kk_custom' => [
+      'render element' => 'children',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_mail().
+ */
+function kk_custom_mail($key, &$message, $params) {
+  $options = array(
+    'langcode' => $message['langcode'],
+  );
+  switch ($key) {
+    case 'get_in_touch':
+     $message['from'] = \Drupal::config('system.site')->get('mail');
+     $message['subject'] = t('Karmakonnect.in get in touch request', $options);
+     $message['body'][] = $params['message'];
+     $message['headers'] = $params['headers'];
+     break;
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function kk_custom_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'contact_message_feedback_form') {
+    // Add form submit for newsletter subscription.
+    array_unshift($form['actions']['submit']['#submit'], '\Drupal\kk_custom\Controller\ContactSubmitController::contactFormSubmit');
+    // Remove preview button.
+    unset($form['actions']['preview']);
+    // Add placeholders.
+    $form['mail']['#attributes']['placeholder'] = t('someone@xyz.com');
+    $form['field_how_can_we_help_you_']['widget']['#options']['_none'] = 'Select purpose of Inquiry';
+    $form['field_phone_number']['widget'][0]['value']['#placeholder'] = t('+91');
+    $form['message']['widget'][0]['value']['#placeholder'] = t('Write brief inquiry here');
+  }
+}

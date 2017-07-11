@@ -1,0 +1,5 @@
+name: KK Custom
+type: module
+description: KK Custom
+core: 8.x
+package: Custom
